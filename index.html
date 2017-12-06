@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/hellomyBlog/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/06/hello-world/" itemprop="url">Untitled</a></h1>
+                <a class="post-title-link" href="/2017/12/06/hellomyBlog/" itemprop="url">hellomyBlog</a></h1>
         
 
         <div class="post-meta">
@@ -257,9 +257,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T22:08:42+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T23:39:33+08:00">
                 2017-12-06
               </time>
             
@@ -299,19 +299,7 @@
       
         
           
-            <p>#Squeeze the Pruned Network with Hashing Trick<br>~~ <script type="text/x-mathjax-config"><br>~~ MathJax.Hub.Config({tex2jax: {inlineMath:[[‘$’,’$’]]}});<br>~~ </script><br>~~ <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></p>
-<p>In this section we propose to use hashing trick instead of quantization to further compress pruned networks. We start by normally pruning deep neural networks. Next, we push the virtual matrix into hash buckets in groups. Finally, two hash buckets are combined into one common centroid vector. </p>
-<p>##{Pruning}<br>Pruning has been widely used in the field of deep learning network compression and matrix sparsity. And it has been proved a promised result on CNN networks\cite{RN10}\cite{RN17}. We build on top of their outstanding works. According to Granularities, pruning is divided into feature level and kernel level. We choose kernel level pruning for unstructured sparsity on pre-trained deep convolutional neural networks\cite{RN10}. Those connections with weights blow a threshold will be dropped. The threshold is always determined by the pruning ratio $\alpha$. We sort $n^l$ weights of $l^th$ layer matrix by absolute values and store them in array $arry(i),i=1,2,…,n^l$. Then, the threshold can be calculated by $THR=arr([n^l\cdot\alpha]+1)$.<br>A convolutional neural network can be defined as a weighted directed $N=(V,E,w)$, where $V={N^0,…,N^l,…,N^n}$ is a set of $n+1$ layers’ neurons and $N^l={0^l,1^l…,n^l}$ represents units of the $l_th$ layer, $E$ is a set of connections, and $v:{E}\to{R}$ is function that assigns a valued weight $w(i^l,j^{l+1})$ to the connection $(i^l,j^{l+1})\in{E}$.</p>
-<p>After a connection $(i^l,j^{l+1})$ is pruned, the new pruned network will have the following set of connections:<br>$$E<em>{new}=E</em>{old}-{(i^l,j^{l+1})}$$<br>$$[v^{l}<em>{ij}]</em>{new}=m^{l}<em>{ij}v^{l}</em>{ij} \textrm{, where } m^{l}<em>{ij}=\left{ \begin{array}{cc}0 &amp; v^{l}</em>{ij}&lt;THR \<br>1 &amp; v^{l}<em>{ij}\geq{THR}<br>\end{array}\right.$$<br>If all the neurons (besides the input and output layer) still have both incoming and outgoing connections, the new pruned network will have the set of neurons unchanged:<br>$$V</em>{new}=V<em>{old}$$<br>Otherwise, whether all the incoming or outgoing connections of a neuron are pruned, the relevant neuron will be pruned. The new pruned network will have a set of neurons as:<br>$$V</em>{new}=V<em>{old}-{h}$$<br>And after a neuron is pruned, the new set of connections can be:<br>$$E</em>{new}=E_{old}-{N^{l-1}\times{h}, {h^l}\times{N^{l+1}}}$$</p>
-<p>Fig 1: An illustration of pruning a convolutional neural network in both convolutional layer and full-connected layer. The “0”in the weight matrix represent the weight has been pruned. The pruning rate of CONV layer is 0.25, and FC layer is 0.5.</p>
-<p>\subsection{Weight sharing with hashing trick}<br>$y^{l+1}<em>{i}=f(\theta^{l+1}</em>{i})$, where $\theta^{l+1}<em>{i}=\sum\limits</em>{j=0}^{n^l}m^{l}<em>{ij}v^{l}</em>{ij}y^{l}_{j}$</p>
-<p>$v^{l}<em>{ij}=w^{l}</em>{h^{l}(i,j)}\xi^{l}(i,j)$</p>
-<p>$y^{l+1}<em>{i}=f(\sum\limits</em>{j=0}^{n^l}m^{l}<em>{ij}w^{l}</em>{h^{l}(i,j)}\xi^{l}(i,j)y^{l}_{j})$</p>
-<p>$\delta<em>j=(\sum</em>{i=0}^{n^{l+1}}m<em>{ij}v</em>{ij}\delta^{l+1}_{i})f’(\theta_j)$</p>
-<p>$\delta<em>j=(\sum\limits</em>{i=0}^{n^{l+1}}m<em>{ij}w</em>{h(i,j)}\xi(i,j)\delta^{l+1}_{i})f’(\theta_j)$</p>
-<p>$\frac{\partial{L}}{\partial{v<em>{ij}}}=m^{l}</em>{ij}y<em>i\delta^{l+1}</em>{i}$, and<br>$\frac{\partial{v_{ij}}}{\partial{w<em>k}}=\xi(i,j)\delta</em>{h(i,j)=k}$\</p>
-<p>$\frac{\partial{L}}{\partial{w<em>k}}=\sum\limits</em>{i,j}\frac{\partial{L}}{\partial{v<em>{ij}}}\frac{\partial{v</em>{ij}}}{\partial{w_k}}$</p>
-<p>$=\sum\limits<em>{i=0}^{n^{l+1}}\sum\limits</em>{j}m_{ij}y<em>i\delta^{l+1}</em>{i}\xi(i,j)\delta_{h(i,j)=k} $</p>
+            <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>At present, the evolvement trend of mobility and light weight of deep learning networks has become increasingly obvious. Deep learning networks are progressively being applied to smart terminals and embedded devices, such as currently popular smartphone portrait photography and auto autopilot. Compared with the cloud servers, these computing devices are more close to the usage scenarios of artificial intelligence, and able to satisfy the real-time processing needs. However, their computing performance and storage space are significantly limited. At the same time, deep learning networks, especially deep convolution neural networks, are moving toward greater capacity, greater scale and deeper levels. Generally, high-capacity deep neural networks are inevitably accompanied by massive amount of neurons and connections. Take VGG-16 on the ILSVRC-2012 dataset, which is one of state-of-the-art deep models, as an example, it has 19 weight layers, 144 million parameters and occupies 552M storage space.\citeRN169 The contradiction between the trend of mobility and larger scale has led to the rapid development of deep learning network compression technology.<br>CNN pruning has been studied by several researchers.\citeRN12 \citeRN16 \citeRN15 And there are several approaches to compress large scale networks. Denil et al.\citeRN13 found the redundancy of parameters in DNNs, and pointed out that some of these parameters are not necessary to spend resources to train. \citeRN8 stored parameters of CNNs with vector quantization, and reduced the memory consumption by establishing indexes. Han Song et al. \citeRN17 implemented weight sharing by quantizing the weights after a pruning process, which filters out the nonsignificant connections ahead of schedule. \citeRN10 further introduced structured pruning using evolutionary particle filter on deep convolutional neural networks. Chen et al. \citeRN3 employed hashing function to group connection weights into hash buckets for weight sharing.<br>In this work we propose to squeeze the pruned network with hashing trick. The proposed work first explores sparsity of FC and CONV layers by pruning the unimportant connections. Then the remained high-precision weights are partially compressed into 2 hash buckets that eventually converging into a common centroid vector to reduce the CNN’s memory footprint. In the end we retrain the surviving connections and centroids to counteract the loss in accuracy. In the weight initialization phase of retraining, the proposed work compared 3 candidate approaches including taking the maximum, minimum and average value in the hash buckets as the initial real weights. Experiments show that the xxxx method has the most excellent performance.<br>Several favorable properties of our scheme is especially remarkable: 1. The hashing function is much more low-cost compared with scalar quantization, which consumes additional memory space for storing index data and more computing resources especially for Index establishing algorithm（kmeans\citeRN8, for example; 2. Packet handling of hashing procedure and weight sharing in virtual matrix will largely relieve the computational pressure of the overall hash function operation; 3. The weight sharing approach using hashing trick cooperates well with pruning in that pruning the unimportant connections beforehand will decrease hash collision making the weight sharing more efficient.<br>The rest of the paper is organized as follows. Section 2 presents. Section 3 explains . Experimental results are provided in Section . Finally Section  concludes the work.</p>
 
           
         
@@ -394,7 +382,7 @@
                 <a href="/archives/">
               
                   <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">Artikel</span>
                 </a>
               </div>
             
@@ -446,7 +434,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
