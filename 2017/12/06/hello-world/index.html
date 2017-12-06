@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="#Squeeze the Pruned Network with Hashing Trick~~ ~~ MathJax.Hub.Config({tex2jax: {inlineMath:[[‘$’,’$’]]}});~~ ~~  In this section we propose to use hashing trick instead of quantization to further co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/12/06/hello-world/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="#Squeeze the Pruned Network with Hashing Trick~~ ~~ MathJax.Hub.Config({tex2jax: {inlineMath:[[‘$’,’$’]]}});~~ ~~  In this section we propose to use hashing trick instead of quantization to further co">
+<meta property="og:updated_time" content="2017-12-06T14:42:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="#Squeeze the Pruned Network with Hashing Trick~~ ~~ MathJax.Hub.Config({tex2jax: {inlineMath:[[‘$’,’$’]]}});~~ ~~  In this section we propose to use hashing trick instead of quantization to further co">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/12/06/hello-world/"/>
+
+
+
+
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/06/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-06T22:08:42+08:00">
+                2017-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>#Squeeze the Pruned Network with Hashing Trick<br>~~ <script type="text/x-mathjax-config"><br>~~ MathJax.Hub.Config({tex2jax: {inlineMath:[[‘$’,’$’]]}});<br>~~ </script><br>~~ <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></p>
+<p>In this section we propose to use hashing trick instead of quantization to further compress pruned networks. We start by normally pruning deep neural networks. Next, we push the virtual matrix into hash buckets in groups. Finally, two hash buckets are combined into one common centroid vector. </p>
+<p>##{Pruning}<br>Pruning has been widely used in the field of deep learning network compression and matrix sparsity. And it has been proved a promised result on CNN networks\cite{RN10}\cite{RN17}. We build on top of their outstanding works. According to Granularities, pruning is divided into feature level and kernel level. We choose kernel level pruning for unstructured sparsity on pre-trained deep convolutional neural networks\cite{RN10}. Those connections with weights blow a threshold will be dropped. The threshold is always determined by the pruning ratio $\alpha$. We sort $n^l$ weights of $l^th$ layer matrix by absolute values and store them in array $arry(i),i=1,2,…,n^l$. Then, the threshold can be calculated by $THR=arr([n^l\cdot\alpha]+1)$.<br>A convolutional neural network can be defined as a weighted directed $N=(V,E,w)$, where $V={N^0,…,N^l,…,N^n}$ is a set of $n+1$ layers’ neurons and $N^l={0^l,1^l…,n^l}$ represents units of the $l_th$ layer, $E$ is a set of connections, and $v:{E}\to{R}$ is function that assigns a valued weight $w(i^l,j^{l+1})$ to the connection $(i^l,j^{l+1})\in{E}$.</p>
+<p>After a connection $(i^l,j^{l+1})$ is pruned, the new pruned network will have the following set of connections:<br>$$E<em>{new}=E</em>{old}-{(i^l,j^{l+1})}$$<br>$$[v^{l}<em>{ij}]</em>{new}=m^{l}<em>{ij}v^{l}</em>{ij} \textrm{, where } m^{l}<em>{ij}=\left{ \begin{array}{cc}0 &amp; v^{l}</em>{ij}&lt;THR \<br>1 &amp; v^{l}<em>{ij}\geq{THR}<br>\end{array}\right.$$<br>If all the neurons (besides the input and output layer) still have both incoming and outgoing connections, the new pruned network will have the set of neurons unchanged:<br>$$V</em>{new}=V<em>{old}$$<br>Otherwise, whether all the incoming or outgoing connections of a neuron are pruned, the relevant neuron will be pruned. The new pruned network will have a set of neurons as:<br>$$V</em>{new}=V<em>{old}-{h}$$<br>And after a neuron is pruned, the new set of connections can be:<br>$$E</em>{new}=E_{old}-{N^{l-1}\times{h}, {h^l}\times{N^{l+1}}}$$</p>
+<p>Fig 1: An illustration of pruning a convolutional neural network in both convolutional layer and full-connected layer. The “0”in the weight matrix represent the weight has been pruned. The pruning rate of CONV layer is 0.25, and FC layer is 0.5.</p>
+<p>\subsection{Weight sharing with hashing trick}<br>$y^{l+1}<em>{i}=f(\theta^{l+1}</em>{i})$, where $\theta^{l+1}<em>{i}=\sum\limits</em>{j=0}^{n^l}m^{l}<em>{ij}v^{l}</em>{ij}y^{l}_{j}$</p>
+<p>$v^{l}<em>{ij}=w^{l}</em>{h^{l}(i,j)}\xi^{l}(i,j)$</p>
+<p>$y^{l+1}<em>{i}=f(\sum\limits</em>{j=0}^{n^l}m^{l}<em>{ij}w^{l}</em>{h^{l}(i,j)}\xi^{l}(i,j)y^{l}_{j})$</p>
+<p>$\delta<em>j=(\sum</em>{i=0}^{n^{l+1}}m<em>{ij}v</em>{ij}\delta^{l+1}_{i})f’(\theta_j)$</p>
+<p>$\delta<em>j=(\sum\limits</em>{i=0}^{n^{l+1}}m<em>{ij}w</em>{h(i,j)}\xi(i,j)\delta^{l+1}_{i})f’(\theta_j)$</p>
+<p>$\frac{\partial{L}}{\partial{v<em>{ij}}}=m^{l}</em>{ij}y<em>i\delta^{l+1}</em>{i}$, and<br>$\frac{\partial{v_{ij}}}{\partial{w<em>k}}=\xi(i,j)\delta</em>{h(i,j)=k}$\</p>
+<p>$\frac{\partial{L}}{\partial{w<em>k}}=\sum\limits</em>{i,j}\frac{\partial{L}}{\partial{v<em>{ij}}}\frac{\partial{v</em>{ij}}}{\partial{w_k}}$</p>
+<p>$=\sum\limits<em>{i=0}^{n^{l+1}}\sum\limits</em>{j}m_{ij}y<em>i\delta^{l+1}</em>{i}\xi(i,j)\delta_{h(i,j)=k} $</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
