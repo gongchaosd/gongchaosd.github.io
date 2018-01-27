@@ -23,12 +23,6 @@ hexo new *文章标题*
         </categories>
         
         
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
