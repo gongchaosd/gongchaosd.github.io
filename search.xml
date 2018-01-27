@@ -7,13 +7,13 @@
       <url>/2018/01/27/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B/</url>
       <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>之前因为在<a href="https://sspai.com/" target="_blank" rel="noopener">少数派</a>上无意间看到在github仓库使用<a href="https://hexo.io/zh-cn/index.html" target="_blank" rel="noopener">Hexo</a>搭建个人博客，很感兴趣，于是就动手制作了自己第一个零支出的个人博客。但前段时间个人工作一忙起来个人时间比较有限，就把这个博客给搁置了。现在突然再捡起来想写一点东西，发现都无从下手了。于是，现在决定第一篇就挂一个博客的新建和发布流程，以防今后再忘了随时打开网站看一眼。见笑了…</p>
 <p>##发布流程</p>
-<p>###1. 新建带有模板格式的.md文章</p>
+<p>###新建带有模板格式的.md文章</p>
 <p>我使用的material主题，在文章列表可以显示标题、标签、缩略图、日期和分类等信息，而这些头文件每次都要手动添加很麻烦，所以参考<a href="https://crowncj.com/20170616.html" target="_blank" rel="noopener">这篇文章</a>修改了post模板，这样每次通过<em>hexo new</em>指令创建的文章就默认带有这些格式数据了，我只需要按提示填入即可。</p>
 <pre><code>cd hexo
 hexo new *文章标题*
-</code></pre><p>###2. 编辑文章内容</p>
+</code></pre><p>###编辑文章内容</p>
 <p>文章被创建后可以直接去文件夹打开<em>“~/hexo/source/_posts/新文章.md”</em>编辑新文章。但更推荐使用MWeb的外部模式，把<em>“~/hexo/source”</em>添加进去。这样每次通过命令行新建的文章都会自动显示在MWeb的外部文件家里。打开MWeb，快捷键<strong>command + E</strong>即可输入打开外部模式。MWeb的具体设置过程，可以参考<a href="http://www.yulongjun.com/macos/20170728-mweb-hexo/" target="_blank" rel="noopener">这里</a>。</p>
-<p>###3. 发布文章<br>     hexo clean //清除缓存，如果不先此操作经常会在文章发布后，github上反应迟钝加载不出新文章<br>     hexo g  //生成静态页面<br>     hexo d  //部署到Github</p>
+<p>###发布文章<br>     hexo clean //清除缓存，如果不先此操作经常会在文章发布后，github上反应迟钝加载不出新文章<br>     hexo g  //生成静态页面<br>     hexo d  //部署到Github</p>
 ]]></content>
       
         <categories>
