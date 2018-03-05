@@ -43,7 +43,7 @@
     
     <title>
         
-            归档: 2017/12 | 
+            ⎡展开计算图⎦之学习笔记 | 
         
         Gong Chao
     </title>
@@ -54,7 +54,7 @@
 
     <meta name="format-detection" content="telephone=no"/>
     <meta name="description" itemprop="description" content="">
-    <meta name="keywords" content="">
+    <meta name="keywords" content=",循环神经网络">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -215,7 +215,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Gong Chao">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/2017/12/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Gong Chao">
@@ -230,13 +230,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/2017/12/">
+    <meta property="og:url" content="http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2017/12 | Gong Chao">
+    <meta property="og:title" content="⎡展开计算图⎦之学习笔记 | Gong Chao">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
-    
+    <meta property="og:article:tag" content="循环神经网络"> 
 
+    
+        <meta property="article:published_time" content="Mon Mar 05 2018 21:06:51 GMT+0800">
+        <meta property="article:modified_time" content="Mon Mar 05 2018 22:01:57 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -244,13 +247,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/2017/12/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/index.html",
+    "headline": "⎡展开计算图⎦之学习笔记",
+    "datePublished": "Mon Mar 05 2018 21:06:51 GMT+0800",
+    "dateModified": "Mon Mar 05 2018 22:01:57 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Gong Chao",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/AndyWarhol.png"
+        },
+        "description": "The two most important days in your life are the day you're born and the day you find out why."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Gong Chao",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",循环神经网络",
+    "description": "",
+}
+</script>
 
 
     
@@ -284,96 +317,233 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#展开计算图"><span class="post-toc-number">1.</span> <span class="post-toc-text"><a href="#&#x5C55;&#x5F00;&#x8BA1;&#x7B97;&#x56FE;" class="headerlink" title="&#x5C55;&#x5F00;&#x8BA1;&#x7B97;&#x56FE;"></a>&#x5C55;&#x5F00;&#x8BA1;&#x7B97;&#x56FE;</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义"><span class="post-toc-number">1.1.</span> <span class="post-toc-text"><a href="#&#x5B9A;&#x4E49;" class="headerlink" title="&#x5B9A;&#x4E49;"></a>&#x5B9A;&#x4E49;</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#优点"><span class="post-toc-number">1.2.</span> <span class="post-toc-text"><a href="#&#x4F18;&#x70B9;" class="headerlink" title="&#x4F18;&#x70B9;"></a>&#x4F18;&#x70B9;</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50 lazy" data-original="https://ws4.sinaimg.cn/large/006tKfTcgy1fm80tukwr6j30zk0n4grj.jpg">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://ask.qcloudimg.com/http-save/yehe-1008345/5mlnrajhrf.jpeg?imageView2/0/w/1620)">
+    
+            <p class="article-headline-p">
+                ⎡展开计算图⎦之学习笔记
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/AndyWarhol.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Gong Chao</strong>
+        <span>3月 05, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="https://pan.baidu.com/share/qrcode?w=246&h=246&url=http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/">
+    
+</ul>
+
     
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2017/12/07/情商网络/">情商网络</a></p>
-    </div>
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/循环神经网络/">循环神经网络</a>
+    </ul>
+    
 
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            情商网络
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2017/12/07/情商网络/" target="_self">阅读全文</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/AndyWarhol.png" width="44px" height="44px" alt="Gong Chao's avatar">
-            </div>
-            <div>
-                <strong>Gong Chao</strong>
-                <span>12月 07, 2017</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/学习/">学习</a>
-              </span>
-            
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
 
-            
+    
 
-            
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=⎡展开计算图⎦之学习笔记&url=http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
 
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=⎡展开计算图⎦之学习笔记&url=http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/index.html&via=Gong Chao" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2018/03/05/⎡展开计算图⎦之学习笔记/index.html&text=⎡展开计算图⎦之学习笔记" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
 </div>
 
-            
-            
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p><code>&lt;script type=&quot;text/x-mathjax-config&quot;&gt;</code><br> <code>MathJax.Hub.Config({tex2jax: {inlineMath:[[&#39;$&#39;,&#39;$&#39;]]}});</code><br><code>&lt;/script&gt;</code><br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</code></p>
+<h1 id="展开计算图"><a href="#展开计算图" class="headerlink" title="展开计算图"></a>展开计算图</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>计算图是形式化一组计算结构的方式。用于直观地表现输入经过运算的流向。如图<br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fp296oc7dhj31ap0u0q61.jpg" alt=""><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fp2afy1yqfj30zk0mu40f.jpg" alt=""></p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li>无论序列的长度，学成的模型始终具有相同的输入大小，即$ \vec{x}^{(t)} $的宽度，因为它指定的是从一种状态到另一种状态的转移，而不是在可变长度的历史状态上操作。</li>
+<li>我么可以在每个时间步使用相同参数的相同转移函数。即使用可以使用相同的$ \mathbf{W} $矩阵。</li>
+</ol>
+
         
     
 
     
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
-</script>
-
-    
 </div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/02/28/pad测试/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     

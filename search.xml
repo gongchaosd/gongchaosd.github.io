@@ -3,6 +3,32 @@
   
     
     <entry>
+      <title><![CDATA[⎡展开计算图⎦之学习笔记]]></title>
+      <url>/2018/03/05/%E2%8E%A1%E5%B1%95%E5%BC%80%E8%AE%A1%E7%AE%97%E5%9B%BE%E2%8E%A6%E4%B9%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<p><code>&lt;script type=&quot;text/x-mathjax-config&quot;&gt;</code><br> <code>MathJax.Hub.Config({tex2jax: {inlineMath:[[&#39;$&#39;,&#39;$&#39;]]}});</code><br><code>&lt;/script&gt;</code><br><code>&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;&gt;&lt;/script&gt;</code></p>
+<h1 id="展开计算图"><a href="#展开计算图" class="headerlink" title="展开计算图"></a>展开计算图</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>计算图是形式化一组计算结构的方式。用于直观地表现输入经过运算的流向。如图<br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fp296oc7dhj31ap0u0q61.jpg" alt=""><br><img src="https://ws3.sinaimg.cn/large/006tKfTcly1fp2afy1yqfj30zk0mu40f.jpg" alt=""></p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ol>
+<li>无论序列的长度，学成的模型始终具有相同的输入大小，即$ \vec{x}^{(t)} $的宽度，因为它指定的是从一种状态到另一种状态的转移，而不是在可变长度的历史状态上操作。</li>
+<li>我么可以在每个时间步使用相同参数的相同转移函数。即使用可以使用相同的$ \mathbf{W} $矩阵。</li>
+</ol>
+]]></content>
+      
+        <categories>
+            
+            <category> 学习 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> 循环神经网络 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[pad测试]]></title>
       <url>/2018/02/28/pad%E6%B5%8B%E8%AF%95/</url>
       <content type="html"><![CDATA[<p><a href="https://music.163.com/#/playlist?id=2083971023" target="_blank" rel="noopener">网易云音乐</a><br><a href="http://www.wandoujia.com/apps/com.hzyg.frogjump/binding?source=web_inner_referral_binded" target="_blank" rel="noopener">下载游戏</a><br><a href="https://www.pgyer.com/lPLV" target="_blank" rel="noopener">下载乐知教师端</a><br><a href="https://www.pgyer.com/iBMv" target="_blank" rel="noopener">下载乐知学生端</a></p>
